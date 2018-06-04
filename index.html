@@ -1,195 +1,220 @@
-
-
-<!DOCTYPE>
-
+<!DOCTYPE html>
 <html>
-
-<head>
-
 <style>
-h1 {color: white;
-  font-size: 1em;
-text-align: center;}
-  h2 {color: white;
-    font-size: 50px;}
-    h3 {color: white;
-      font-size: 1,1em;}
-      h4 {color: white;
-        font-size: 0,9em;}
-        h5 {color: white;
-        font-size: 0,7em}
-
-body{
-background-image: url(achtergrond.jpg);
-padding:0;
-margin:0;
-background-size: cover;
+#BORD{
+position: relative;
+Background-color: green;
 }
-
-.footer{
-  position:fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: black;
-  text-align: center;
-  z-index: 100;
-  background: linear-gradient(to right, rgba(0,255,255,1) 0%,rgba(0,255,70,1) 55%,rgba(255,127,0,1) 71%,rgba(255,0,0,1) 100%);
-  font-family: none;
-  font-size: 20px;
+.blokje{
+width: 10%;
+height: 10%;
+position: relative;
+background-color: blue;
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    /*
-    https://pastebin.com/QsBT10wK
-    */
-    background: url(https://lh4.googleusercontent.com/zwb2PUfMUNjbxQiJSsW5lewuw_DO3ViQGIWaWAN6AiDsOyPPUJlnWAanNAf83D6Ghop3vak1s3m3_OwA4LOr=w1920-h1094);
-    position: relative;
-
+#getal{
+position: relative;
+background-color: red;
 }
-
-li {
-    float: left;
-    position: relative;
+#waarde{
+position: relative;
+left: 0%;
+height: 50%;
 }
-
-.Apple{
- float: left;
-height:275;
-width:275;
+.button{
+width: 100%;
+height: 100%;
+background-color: green;
 }
-
-.Samsung{
-float: right;
-height:200;
-width:275;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    position: relative;
-}
-
-
-
-
-li a:hover {
-    background-color: rgb(0,29,224);
-    position: relative;
-}
-
-
-
-
-
 </style>
-
-<title> Apple vs Samsung </title>
-
-</head>
-
 <body>
 
-<center><ul>
+<div id='BORD'></div>
+
+<div id='getal'><center><p id='waarde'>1</p></center></div>
+<p id='test'></p>
 
 
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Prijsvergeleiking</a></li>
+<?php
+echo "<script>var Uid = " . $_GET['Uid'] . "; Eid = " . $_GET['Eid'] . "; var beurt = " . $_GET['beurt'] . "; var gevuldevakken = [" . $_GET['gevuld'] . "];</script>";
+?>
 
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Kwaliteitsvergeleiking</a></li>
+<script>
+var breedte = screen.width;
+var hoogte = screen.height;
+var hoofdwaarde = 0;
+var teller = 0;
+var teller2 = 1;
 
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Gebruiksvriendelijkheid</a></li>
-
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Beveligingsvergeleiking</a></li>
-
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Playstore vs Appstore</a></li>
-
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Inovatie</a></li>
-
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Milieu vriendelijkheid</a></li>
-
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Werkomstandigheden</a></li>
-
-<li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced">Conclusie</a></li>
-
-</ul></center>
-
-<br>
+if (breedte > hoogte) {
+hoofdwaarde = hoogte;
+    
+} else {
+hoofdwaarde = breedte;
+    
+}
 
 
-  <a href="Samsung_achtergrondinformatie.html">
-
-<img class=Samsung src="https://i.ytimg.com/vi/s9SRdqrswBU/maxresdefault.jpg
-
-" alt="Samsung logo" width="450" height="200">
-
-</a>
+document.getElementById('BORD').style.width = hoofdwaarde/100 * 80 + 'px';
+document.getElementById('BORD').style.height = hoofdwaarde/100 * 80 + 'px';
+document.getElementById('BORD').style.top = (hoogte/100 * 50 - hoofdwaarde/100 * 40) + 'px';
+document.getElementById('BORD').style.left = (breedte/100 * 50 - hoofdwaarde/100 * 40) + 'px';
 
 
- <a href="Apple_achtergrondinformatie.html">
+document.getElementById('getal').style.width = hoofdwaarde/100 * 15 + 'px';
+document.getElementById('getal').style.height = hoofdwaarde/100 * 20 + 'px';
+document.getElementById('getal').style.top = (hoofdwaarde/100 * 10 - hoofdwaarde/100 * 95) + 'px';
+document.getElementById('getal').style.left = hoofdwaarde/100 * 5 + 'px';
 
-  <img class=Apple src="https://cdn.macrumors.com/images-new/apple-logo.jpg
+document.getElementById('waarde').style.fontSize = (hoofdwaarde/100 * 15) + 'px';
 
-" alt="Apple logo" width="275" height="275">
+setTimeout(vakjesvul(), 0);
 
-</a>
+function vakjesvul(){
+teller++;
 
+if (teller < 11){
 
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje'></div>");
 
+}else if(teller < 21){
 
-<center>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:10%; top:-100%'></div>");
+}else if(teller < 31){
 
-    <strong>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:20%; top:-200%'></div>");
+}else if(teller < 41){
 
-<big>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:30%; top:-300%'></div>");
+}else if(teller < 51){
 
-      <h2>Vergelijking Apple en Samsung</h2>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:40%; top:-400%'></div>");
+}else if(teller < 61){
 
-</big>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:50%; top:-500%'></div>");
+}else if(teller < 71){
 
-    </strong>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:60%; top:-600%'></div>");
+}else if(teller < 81){
 
-  </center>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:70%; top:-700%'></div>");
+}else if(teller < 91){
 
-<center>
-<p>
-<h5>De plaatjes zijn links</h5>
-</p>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:80%; top:-800%'></div>");
+}else if(teller < 101){
 
-<br><br><br><br><br>
-<strong>
+document.getElementById('BORD').innerHTML = document.getElementById('BORD').innerHTML + ("<div id='rij"+ teller +"' class='blokje' style='left:90%; top:-900%'></div>");
+}
 
-<h3>Website informatica H4</h3>
-
-</strong>
-
-
-
-<h3>Wouter Weijnen en Lucas de Man</h3>
-<br>
-<br>
-<h5>
-  de plaatjes zijn links
-</h5>
-<br>
-<h4>
-  website informatica
-</h4>
-</center>
+if (teller < 101){
+setTimeout(vakjesvul(), 0);
+}
+}
 
 
-<div class="footer">
-    <pfooter>Apple vs Samsung</pfooter>
-  </div>
+				//einde opmaak
+               
+                
+                //begin spelstart
+ if (beurt == 0){
+  var k;
+  for(k=0; k < 100; k++){
+   gevuldevakken[k] = 0;
+  }
+var plaats = 0;
+setTimeout(volmaken() ,0);
+}
+function volmaken(){
+plaats += 10;
 
-  </body>
+       
+document.getElementById('rij'+ plaats +'').innerHTML = "<button class='button' onclick='zetsteen("+ plaats +", "+ teller2 +")'></button>";
 
+if (plaats < 100){
+setTimeout(volmaken() ,0);
+}
+}
+
+
+var vol = [0, 'f'];
+
+var mdmd = 0;
+var i;
+var m;
+function zetsteen(A, B){
+gevuldevakken[A - 1] = B;
+mdmd = 0;
+
+for (i = 10; i < 101; i += 10) {
+document.getElementById('rij'+ i +'').innerHTML = ''; 
+}
+
+vol[B - 1] = A;
+document.getElementById('waarde').innerHTML = B + 1;
+if (B == 10){
+ beurt++;
+
+ location.href = "https://pindapelja-lucasdeman.c9users.io/rekenen.php?Uid=" + Uid + "&Eid=" + Eid + "&beurt=" + beurt + "&gevuld=" + gevuldevakken;
+}
+for (m = 0; m < 10; m++){
+if (vol[m] * 0 == 0){
+document.getElementById('rij'+ vol[m] +'').innerHTML = (1 + m);
+}else if(mdmd < 1){
+mdmd++;
+setTimeout(FORmule(), 0);
+}
+}
+
+
+
+}
+
+
+ var controle = 0;
+ var t;
+ var n;
+ 
+ 
+function FORmule(){ 
+teller2++;
+for (t = 10; t < 110; t += 10) {
+
+for (n = 0; n < 10; n++) {
+
+
+if (vol[n] != t){
+controle++;
+}
+}
+if (controle == 10){
+
+document.getElementById('rij'+ t +'').innerHTML = "<button class='button' onclick='zetsteen("+ t +", "+ teller2 +")'></button>";
+}
+controle = 0;
+}
+
+}
+
+
+				//einde spelstart
+
+    //veld herstellen
+if (beurt != 0){
+ var l;
+ for (l=0; l < 100; l++){
+  if (gevuldevakken[l] != 0){
+   
+   document.getElementById('rij' + (l + 1) + '').innerHTML = gevuldevakken[l];
+  }
+ }
+ 
+}
+
+
+
+</script>
+
+
+</body>
 </html>
+
 
